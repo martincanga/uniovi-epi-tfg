@@ -1,4 +1,4 @@
-//#import "@preview/uniovi-tfg:0.1.0": *
+//#import "@preview/uniovi-epi-tfg:0.1.0": *
 #import "../lib.typ": *
 
 #show: template.with(

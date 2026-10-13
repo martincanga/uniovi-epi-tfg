@@ -7,13 +7,13 @@ A Typst template that complies with [E.P.I University of Oviedo](https://epi.uni
 You can initialize a project directly from the CLI:
 
 ```bash
-typst init @preview/uniovi-tfg
+typst init @preview/uniovi-epi-tfg
 ```
 
 Or copy this minimal template into your document:
 
 ```typst
-#import "@preview/uniovi-tfg:0.1.0": *
+#import "@preview/uniovi-epi-tfg:0.1.0": *
 
 #show: template.with(
   school: "Escuela Politécnica de Ingeniería de Gijón",

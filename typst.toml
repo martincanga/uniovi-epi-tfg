@@ -1,5 +1,5 @@
 [package]
-name = "uniovi-tfg"
+name = "uniovi-epi-tfg"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Martín Canga (Carver)"]
