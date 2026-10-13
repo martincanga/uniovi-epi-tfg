@@ -21,12 +21,10 @@
   show_numbering: true,
 
   date: none,
-  institution: none,
   institution-link: "https://www.uniovi.es",
   subject: none,
   lang: "es",
-
-
+  bibliography_style: "ieee",
 
   body,
 ) = {
@@ -37,20 +35,25 @@
 
   
   // ==========================================
-  // COVER CONFIGURATION
+  // DOCUMENT & COVER CONFIGURATION
   // ==========================================
 
+  set document(
+    title: title,
+    author: authors.map(a => a.name + " " + a.surname), 
+    supervisor: supervisor.map(a => a.name + " " + a.surname),
+    institution: get_translation(translated_terms.uniovi),
+    institution-link: institution-link
+    )
 
   set text(font: text_font, size: 12pt, fill: text_color, lang: text_lang)
 
   set par(
-    justify: justify,
-    linebreaks: "optimized",
-    leading: 0.65em * 1.5,
-    spacing: 0.65em * 1.5,
+  justify: true,
+  linebreaks: "optimized",
+  leading: 1em,
+  spacing: 1em,
   )
-  set document(author: authors.map(a => a.name), title: title)
-
 
   set page(
     margin: (top: 3cm, left: 3cm, bottom: 2.5cm, right: 2.5cm),
@@ -126,13 +129,8 @@
 
 
   set text(font: text_font, size: 12pt, fill: text_color, lang: text_lang)
-
-  set par(
-    justify: justify,
-    linebreaks: "optimized",
-    leading: 0.65em * 1.5,
-    spacing: 0.65em * 1.5 * 2,  // 1 blank line = 2 × leading (par + blank l.)
-  )
+  
+  set bibliography(style: bibliography_style)
 
   set page(
     header: {
@@ -145,21 +143,19 @@
 
         [
           #move(
-            dy: 11.5pt,
+            dy: 6pt,
             image("assets/uniovi_header.webp"),
           )
         ],
         [
-          #move(dy: 3.5pt)[
-            #get_translation(translated_terms.uniovi) - #school \
-            #get_translation(translated_terms.tfg) (#title) -
-            #get_translation(translated_terms.page)
-            #context {
-              let current = counter(page).get().first()
-              let total = counter(page).final().first()
-              [#numbering("1", current) #separator #numbering("1", total)]
-            }
-          ]
+          #get_translation(translated_terms.uniovi) - #school \
+          #get_translation(translated_terms.tfg) (#title) -
+          #get_translation(translated_terms.page)
+          #context {
+            let current = counter(page).get().first()
+            let total = counter(page).final().first()
+            [#numbering("1", current) #separator #numbering("1", total)]
+          }
         ],
       )
 
@@ -189,18 +185,18 @@
   )
 
   // Sections: 14 pt, bold, uppercase
-  show heading.where(level: 2): set text(
-    size: 14pt,
-    weight: "bold",
-  )
-
-  show heading.where(level: 2): set block(
-    above: 2em,
-    below: 1em,
-  )
-
   show heading.where(level: 2): it => {
-    it.numbering + " " + upper(it.body)
+    set text(
+      size: 14pt,
+      weight: "bold",
+    )
+  
+    block(
+      above: 2em,
+      below: 1em,
+    )[
+      #counter(heading).display() #upper(it.body)
+    ]
   }
 
   // Subsections: 12 pt, bold
@@ -281,4 +277,5 @@
 
 
   body
+
 }
