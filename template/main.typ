@@ -15,11 +15,11 @@
   ),
 
   date: "Octubre 2026",
-  institution: "Universidad de Oviedo",
   institution-link: "https://www.uniovi.es",
   subject: "Trabajo de Fin de Grado",
 
   lang: "es",
+  bibliography_style: "ieee"
 )
 
 
