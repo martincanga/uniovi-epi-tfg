@@ -1,6 +1,6 @@
 # uniovi-epi-tfg
 
-A Typst template for the **Trabajo de Fin de Grado (TFG)** at the [E.P.I. – Escuela Politécnica de Ingeniería](https://epi.uniovi.es), University of Oviedo.
+A Typst template that complies with [E.P.I University of Oviedo](https://epi.uniovi.es) TFG guidelines
 
 ## Quick Start
 
@@ -102,13 +102,6 @@ An outline is generated automatically between the cover page and the body conten
 ### Code Blocks
 
 Raw code blocks are rendered with a custom dark theme (`barf.tmTheme`):
-
-```typst
-```python
-def hola_mundo():
-    print("¡Hola, mundo!")
-```
-```
 
 ### Multi-language Support
 
